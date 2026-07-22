@@ -1,0 +1,38 @@
+<header class="site-header">
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <p class="topbar-motto">"<%= business.motto %>"</p>
+      <a class="topbar-phone" href="<%= business.phoneHref %>">
+        <svg class="i i-sm"><use href="#icon-phone"/></svg>
+        <%= business.phone %>
+      </a>
+    </div>
+  </div>
+
+  <div class="wrap navbar">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" class="brand-heart">
+          <path d="M32 52S9 37 9 21.5C9 13.9 15 8 22.5 8c3.9 0 7.4 1.9 9.5 5 2.1-3.1 5.6-5 9.5-5C49 8 55 13.9 55 21.5 55 37 32 52 32 52z" fill="none" stroke="currentColor" stroke-width="2.4"/>
+          <path d="M22 32l6-6 6 6 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-script">Kind Path</span>
+        <span class="brand-sub">Care Services</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="/" class="<%= active === 'home' ? 'is-active' : '' %>">Home</a>
+      <a href="/services" class="<%= active === 'services' ? 'is-active' : '' %>">Services</a>
+      <a href="/about" class="<%= active === 'about' ? 'is-active' : '' %>">About Us</a>
+      <a href="/contact" class="<%= active === 'contact' ? 'is-active' : '' %>">Contact</a>
+      <a href="/contact" class="btn btn-primary nav-cta">Start a Conversation</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

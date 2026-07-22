@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/icons') %>
+<%- include('partials/header') %>
+
+<main id="content">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Our Services</p>
+      <h1>Care That Meets You Where You Are</h1>
+      <p class="page-hero-lede">From a few hours of companionship to round-the-clock nursing support, every service is built around one question: what does this family actually need right now?</p>
+    </div>
+    <svg class="page-hero-swoosh" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="var(--cream)"/>
+    </svg>
+  </section>
+
+  <section class="services-full">
+    <div class="wrap services-full-grid">
+      <% business.services.forEach(function(s, i){ %>
+        <div class="service-card-full">
+          <div class="service-icon">
+            <svg class="i i-xl"><use href="#icon-<%= s.icon %>"/></svg>
+          </div>
+          <div>
+            <h3><%= s.title %></h3>
+            <p><%= s.copy %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="value-strip">
+    <div class="wrap value-grid">
+      <% business.values.forEach(function(v){ %>
+        <div class="value-item">
+          <svg class="i i-lg"><use href="#icon-<%= v.icon %>"/></svg>
+          <span><%= v.label %></span>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="mini-cta">
+    <div class="wrap mini-cta-inner">
+      <div>
+        <h2>Not sure which service fits?</h2>
+        <p>That's exactly what the first phone call is for. No forms, no obligation &mdash; just a conversation about your family.</p>
+      </div>
+      <a href="<%= business.phoneHref %>" class="btn btn-primary">Call <%= business.phone %></a>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

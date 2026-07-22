@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/icons') %>
+<%- include('partials/header') %>
+
+<main id="content">
+
+  <section class="page-hero page-hero-contact">
+    <div class="wrap">
+      <p class="eyebrow">Get in Touch</p>
+      <h1>Let's Talk About Your Family</h1>
+      <p class="page-hero-lede">Whether you're ready to start care or just have questions, reach out. There's no pressure and no sales script &mdash; just people who want to help.</p>
+    </div>
+    <svg class="page-hero-swoosh" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="var(--cream)"/>
+    </svg>
+  </section>
+
+  <section class="contact-section">
+    <div class="wrap contact-grid">
+
+      <div class="contact-info">
+        <h2 class="section-title">Reach Us Directly</h2>
+        <a class="contact-info-row" href="<%= business.phoneHref %>">
+          <svg class="i i-lg"><use href="#icon-phone"/></svg>
+          <div><span class="contact-label">Call or Text</span><span><%= business.phone %></span></div>
+        </a>
+        <a class="contact-info-row" href="mailto:<%= business.email %>">
+          <svg class="i i-lg"><use href="#icon-mail"/></svg>
+          <div><span class="contact-label">Email</span><span><%= business.email %></span></div>
+        </a>
+        <!--
+        <div class="contact-info-row">
+          <svg class="i i-lg"><use href="#icon-pin"/></svg>
+          <div><span class="contact-label">Office</span><span><% business.address.forEach(function(line){ %><%= line %><br><% }) %></span></div>
+        </div>-->
+        <div class="contact-info-row">
+          <svg class="i i-lg"><use href="#icon-globe"/></svg>
+          <div><span class="contact-label">Online</span><span><%= business.website %></span></div>
+        </div>
+        <p class="contact-motto">&ldquo;<%= business.motto %>&rdquo;</p>
+      </div>
+
+      <div class="contact-form-wrap">
+        <% if (submitted) { %>
+          <div class="form-success">
+            <svg class="i i-xl"><use href="#icon-heart-outline"/></svg>
+            <h3>Message received</h3>
+            <p>Thank you for reaching out to <%= business.name %>. Your message was emailed to our care team at <%= business.email %>, and someone will reply within one business day.</p>
+          </div>
+        <% } else { %>
+          <% if (typeof error !== 'undefined' && error) { %>
+            <div class="form-error">
+              <p>Something went wrong sending your message. Please try again, or call us directly at <a href="<%= business.phoneHref %>"><%= business.phone %></a>.</p>
+            </div>
+          <% } %>
+          <form class="contact-form" method="POST" action="/contact">
+            <p class="form-note">This form emails our care team directly at <%= business.email %>.</p>
+            <div class="form-row">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Smith">
+            </div>
+            <div class="form-row two-col">
+              <div>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required placeholder="(438) 773-6626">
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="jane@email.com">
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="relation">Who needs care?</label>
+              <select id="relation" name="relation">
+                <option>Myself</option>
+                <option>A parent</option>
+                <option>A spouse or partner</option>
+                <option>Another family member</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="message">Tell us a bit about your situation</label>
+              <textarea id="message" name="message" rows="5" placeholder="What kind of support are you looking for?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        <% } %>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>
+

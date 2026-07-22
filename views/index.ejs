@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/icons') %>
+<%- include('partials/header') %>
+
+<main id="content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-panel">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">In-Home Care, Done Personally</p>
+          <h1>A gentler way<br>to age at home.</h1>
+          <p class="hero-lede">Kind Path pairs your family with a caregiver who fits &mdash; not just a schedule that fits. Compassion, respect, and dignity, from the first phone call onward.</p>
+          <div class="hero-actions">
+            <a href="<%= business.phoneHref %>" class="btn btn-primary">Call Us Now &mdash; <%= business.phone %></a>
+            <a href="/services" class="btn btn-ghost">Explore Our Services</a>
+          </div>
+          <p class="hero-tagline">&ldquo;<%= business.tagline %>&rdquo;</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo-frame">
+            <img src="/images/hands-photo.png" alt="A caregiver gently holding the hands of an older adult" class="hero-photo">
+          </div>
+          <svg class="hero-swoosh" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,120 C120,80 180,180 140,260 C90,360 260,380 400,320 L400,500 L0,500 Z" fill="var(--purple)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE STRIP (mirrors the four brand pillars) -->
+  <section class="value-strip">
+    <div class="wrap value-grid">
+      <% business.values.forEach(function(v){ %>
+        <div class="value-item">
+          <svg class="i i-lg"><use href="#icon-<%= v.icon %>"/></svg>
+          <span><%= v.label %></span>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- SERVICES TEASER: a glimpse of the path, full detail lives on /services -->
+  <section class="teaser-section">
+    <div class="wrap teaser-inner">
+      <div class="teaser-copy">
+        <p class="eyebrow">Our Services</p>
+        <h2 class="section-title">Every Family Walks a Different Path</h2>
+        <p class="section-lede">From a few hours of companionship to round-the-clock nursing support &mdash; explore the full range of care we provide and find the fit for your family.</p>
+        <a href="/services" class="btn btn-primary">See All Services</a>
+      </div>
+      <div class="teaser-icon-grid">
+        <% business.services.forEach(function(s){ %>
+          <a href="/services" class="teaser-icon-item">
+            <svg class="i i-lg"><use href="#icon-<%= s.icon %>"/></svg>
+            <span><%= s.title %></span>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER with tree/path artwork -->
+  <section class="about-teaser">
+    <div class="wrap about-teaser-inner">
+      <div class="about-teaser-art">
+        <img src="/images/tree-path.png" alt="Illustration of a tree with a winding path, symbolizing the Kind Path philosophy of care" class="tree-img">
+      </div>
+      <div class="about-teaser-copy">
+        <p class="eyebrow">Why Families Choose Kind Path</p>
+        <h2 class="section-title">Rooted in Care. Guided by Trust.</h2>
+        <p>Like the tree on our card, good care has deep roots and room to grow &mdash; steady routines, real relationships, and a caregiver who's walked the path with families like yours before.</p>
+        <a href="/about" class="link-arrow">Learn about our approach <svg class="i i-sm"><use href="#icon-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

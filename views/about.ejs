@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/icons') %>
+<%- include('partials/header') %>
+
+<main id="content">
+
+  <section class="page-hero page-hero-about">
+    <div class="wrap">
+      <p class="eyebrow">About Kind Path</p>
+      <h1>Every Path Starts With Listening</h1>
+      <p class="page-hero-lede">Kind Path Care Services was built on a simple idea: families don't need another vendor, they need a partner who treats their loved one like their own.</p>
+    </div>
+    <svg class="page-hero-swoosh" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="var(--cream)"/>
+    </svg>
+  </section>
+
+  <section class="about-teaser">
+    <div class="wrap about-teaser-inner">
+      <div class="about-teaser-art">
+        <img src="/images/tree-path.png" alt="Illustration of a tree with a winding path, symbolizing the Kind Path philosophy of care" class="tree-img">
+      </div>
+      <div class="about-teaser-copy">
+        <p class="eyebrow">Our Philosophy</p>
+        <h2 class="section-title">Compassion. Respect. Dignity.</h2>
+        <p>Those three words aren't a slogan for us &mdash; they're the standard every caregiver is trained and matched against. Compassion means showing up fully present. Respect means care happens with someone, never just to them. Dignity means preserving independence wherever it can be preserved.</p>
+        <p>We think of care as a path, not a program: it bends as needs change, it has room for good days and hard ones, and no two families walk it exactly the same way.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-center">How We Work</p>
+      <h2 class="section-title center">Three Conversations, Not a Contract</h2>
+      <div class="process-grid">
+        <% business.process.forEach(function(p, i){ %>
+          <div class="process-item">
+            <div class="process-heart">
+              <svg class="i i-lg"><use href="#icon-heart-outline"/></svg>
+              <span><%= i + 1 %></span>
+            </div>
+            <h3><%= p.title %></h3>
+            <p><%= p.copy %></p>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-strip">
+    <div class="wrap value-grid">
+      <% business.values.forEach(function(v){ %>
+        <div class="value-item">
+          <svg class="i i-lg"><use href="#icon-<%= v.icon %>"/></svg>
+          <span><%= v.label %></span>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-center">In Their Words</p>
+      <h2 class="section-title center">Families on the Path with Us</h2>
+      <div class="testimonial-grid">
+        <% business.testimonials.forEach(function(t){ %>
+          <blockquote class="testimonial-card">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <p>&ldquo;<%= t.quote %>&rdquo;</p>
+            <cite>&mdash; <%= t.name %></cite>
+          </blockquote>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>
