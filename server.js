@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
@@ -8,7 +10,12 @@ const PORT = process.env.PORT || 3000;
 // Contact form emails are sent through this transporter. Configure it with
 // real SMTP credentials via environment variables (see README.md). Until
 // those are set, submissions are logged to the console instead of sent.
-const mailConfigured = !!(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+const mailConfigured = !!(
+  process.env.SMTP_HOST && 
+  process.env.SMTP_PORT &&
+  process.env.SMTP_USER && 
+  process.env.SMTP_PASS
+);
 
 const transporter = mailConfigured
   ? nodemailer.createTransport({
@@ -33,9 +40,9 @@ const business = {
   motto: 'We care. You matter.',
   phone: '(438) 773-6626',
   phoneHref: 'tel:+14387736626',
-  email: 'info@kindpathservices.com',
-  address: ['123 Caring Way, Suite 100', 'Yourtown, ST 12345'],
-  website: 'www.kindpathcareservices.com',
+  email: 'info@kindpathservices.ca',
+  //address: ['123 Caring Way, Suite 100', 'Yourtown, ST 12345'],
+  website: 'www.kindpathcareservices.ca',
   values: [
     { label: 'Compassionate', icon: 'heartHands' },
     { label: 'Reliable', icon: 'people' },
@@ -136,7 +143,7 @@ app.post('/contact', async (req, res) => {
   ].join('\n');
 
   const mailOptions = {
-    from: process.env.SMTP_USER || `"Kind Path Website" <no-reply@kindpathservices.com>`,
+    from: process.env.SMTP_USER || `"Kind Path Website" <${business.email}>`,
     to: business.email,
     replyTo: email,
     subject: `New contact form submission from ${name || 'a website visitor'}`,

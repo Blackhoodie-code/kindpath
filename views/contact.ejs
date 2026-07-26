@@ -12,7 +12,7 @@
   <section class="page-hero page-hero-contact">
     <div class="wrap">
       <p class="eyebrow">Get in Touch</p>
-      <h1>Let's Talk About Your Family</h1>
+      <h1>Let's Talk About Your Needs</h1>
       <p class="page-hero-lede">Whether you're ready to start care or just have questions, reach out. There's no pressure and no sales script &mdash; just people who want to help.</p>
     </div>
     <svg class="page-hero-swoosh" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
@@ -33,11 +33,19 @@
           <svg class="i i-lg"><use href="#icon-mail"/></svg>
           <div><span class="contact-label">Email</span><span><%= business.email %></span></div>
         </a>
-        <!--
-        <div class="contact-info-row">
-          <svg class="i i-lg"><use href="#icon-pin"/></svg>
-          <div><span class="contact-label">Office</span><span><% business.address.forEach(function(line){ %><%= line %><br><% }) %></span></div>
-        </div>-->
+       <% if (business.address) { %>
+<div class="contact-info-row">
+  <svg class="i i-lg"><use href="#icon-pin"/></svg>
+  <div>
+    <span class="contact-label">Office</span>
+    <span>
+      <% business.address.forEach(function(line){ %>
+        <%= line %><br>
+      <% }) %>
+    </span>
+  </div>
+</div>
+<% } %>
         <div class="contact-info-row">
           <svg class="i i-lg"><use href="#icon-globe"/></svg>
           <div><span class="contact-label">Online</span><span><%= business.website %></span></div>
@@ -81,6 +89,7 @@
                 <option>A parent</option>
                 <option>A spouse or partner</option>
                 <option>Another family member</option>
+                <option>A friend</option>
               </select>
             </div>
             <div class="form-row">

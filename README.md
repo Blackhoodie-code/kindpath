@@ -45,7 +45,7 @@ everywhere automatically — no need to hunt through HTML.
 
 ## Sending contact form emails
 
-The contact form on `/contact` sends an email to `info@kindpathservices.com`
+The contact form on `/contact` sends an email to `info@kindpathservices.ca`
 (the value in the `business.email` field in `server.js`) using
 [Nodemailer](https://nodemailer.com/). To activate real sending, set these
 environment variables before starting the server:
