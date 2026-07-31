@@ -52,11 +52,11 @@ const business = {
   services: [
     {
       title: 'Companionship Care',
-      copy: 'A familiar face for conversation, meals, and errands, so the days feel less alone and a little more like themselves.',
+      copy: 'A familiar face for conversation, meals, and errands, so the client feel less alone and more engaged.',
       icon: 'companion'
     },
     {
-      title: 'Personal Care',
+      title: 'Personal Support Care',
       copy: 'Help with bathing, dressing, and daily routines, delivered with the kind of patience that protects dignity, not just schedules.',
       icon: 'personal'
     },
@@ -71,7 +71,7 @@ const business = {
       icon: 'liveIn'
     },
     {
-      title: "Memory & Alzheimer's Care",
+      title: "Alzheimer's & Dementia Care",
       copy: 'Steady, specialized support for families navigating memory loss, built on routine and reassurance.',
       icon: 'memory'
     },

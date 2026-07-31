@@ -4,7 +4,7 @@
       <p class="topbar-motto">"<%= business.motto %>"</p>
       <a class="topbar-phone" href="<%= business.phoneHref %>">
         <svg class="i i-sm"><use href="#icon-phone"/></svg>
-        <%= business.phone %>
+       Ottawa: <%= business.phone %>
       </a>
     </div>
   </div>
@@ -26,6 +26,18 @@
     <nav class="main-nav" id="mainNav">
       <a href="/" class="<%= active === 'home' ? 'is-active' : '' %>">Home</a>
       <a href="/services" class="<%= active === 'services' ? 'is-active' : '' %>">Services</a>
+      <div class="nav-dropdown">
+       <button class="dropdown-btn">
+         Location
+         <span class="dropdown-arrow">▼</span>
+       </button>
+
+      <div class="dropdown-menu">
+        <a href="#">Ottawa</a>
+       </div>
+      </div>
+
+
       <a href="/about" class="<%= active === 'about' ? 'is-active' : '' %>">About Us</a>
       <a href="/contact" class="<%= active === 'contact' ? 'is-active' : '' %>">Contact</a>
       <a href="/contact" class="btn btn-primary nav-cta">Start a Conversation</a>
